@@ -2,6 +2,7 @@
 // Created by iceberg-work on 2022/2/25.
 //
 
+#include "record.h"
 #ifndef ACCOUNTINGASSISTANT_SERVICE_H
 #define ACCOUNTINGASSISTANT_SERVICE_H
 

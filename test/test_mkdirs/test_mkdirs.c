@@ -2,9 +2,6 @@
 // Created by iceberg on 2022/2/25.
 // Copied by https://blog.csdn.net/u010273652/article/details/26924727
 
-
-
-//include <direct.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -37,7 +34,17 @@ void mkdirs(char *muldir)
 int main(void) {
 	mkdirs("./a/a");
 }
+
+//
+
 /*
+
+// Copied by https://zhidao.baidu.com/question/13143396.html
+
+#include <direct.h>
+#include <stdlib.h>
+#include <stdio.h>
+
 int main( void )
 {
 if( _mkdir( "\\testtmp" ) == 0 )
@@ -53,4 +60,3 @@ else
 printf( "Problem creating directory '\\testtmp'\n" );
 }
 */
-//

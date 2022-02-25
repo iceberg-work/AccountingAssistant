@@ -3,6 +3,7 @@
 //
 
 #inclue "fileNameAndQuantity.h"
+#inclue "dataText.h"
 #ifndef ACCOUNTINGASSISTANT_DAO_H
 #define ACCOUNTINGASSISTANT_DAO_H
 
@@ -24,7 +25,7 @@ int createPath(char* pathName);
  * fileName 文件名
  * 返回值 读取到的内容
  */
-char* readByPath(char* pathName, char* fileName);
+dataText* readByPath(char* pathName, char* fileName);
 //4.修改给定路径下给定文件中的文本
 /*
  * pathName 路径名
