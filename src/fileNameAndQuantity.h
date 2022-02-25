@@ -5,6 +5,7 @@
 #ifndef ACCOUNTINGASSISTANT_FILENAMEANDQUANTITY_H
 #define ACCOUNTINGASSISTANT_FILENAMEANDQUANTITY_H
 
+//指定目录下所有文件的名字及文件总数
 struct fileNameAndQuantity {
     int fileQuantity;
     char* fileName;
