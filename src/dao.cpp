@@ -1,23 +1,54 @@
 //
 // Created by iceberg-work on 2022/2/25.
-//
 
-#inclue "fileNameAndQuantity.h"
-#ifndef ACCOUNTINGASSISTANT_DAO_H
-#define ACCOUNTINGASSISTANT_DAO_H
+#include  <io.h>
+#include  <stdio.h>
+#include  <stdlib.h>
+#include <string.h>
 
 //1.判断给定路径是否存在且有写入权
 /*
  * pathName 路径名
  * 返回值 存在：1；不存在：0；
  */
-int hasPathExists(char* pathName);
+int hasPathExists(char* pathName) {
+    /* Check for existence */
+    if( (_access( pathName, 0 )) != -1 )
+    {
+        /* Check for write permission */
+        if( (_access( "ACCESS.C", 2 )) != -1 )
+            return 1;   //路径存在且有写入权
+    }
+    return 0;
+}
 //2.创建给定路径（依赖1）
 /*
  * pathName 路径名
  * 返回值 成功：1；失败：0；
  */
-int createPath(char* pathName);
+int createPath(char* pathName) {
+    int i,len;
+    char str[512];
+    strncpy(str, muldir, 512);
+    len=strlen(str);
+    for( i=0; i<len; i++ )
+    {
+        if( str[i]=='/' )
+        {
+            str[i] = '\0';
+            if( access(str,0)!=0 )
+            {
+                mkdir( str, 0777 );
+            }
+            str[i]='/';
+        }
+    }
+    if( len>0 && access(str,0)!=0 )
+    {
+        mkdir( str, 0777 );
+    }
+    return 1;   //不会有失败的情况
+}
 //3.读取给定路径下给定文件中的文本
 /*
  * pathName 路径名
@@ -48,4 +79,4 @@ int writeByPath(char* pathName, char* fileName);
  */
 struct fileNameAndQuantity* getfileNameAndQuantity(char* pathName);
 
-#endif //ACCOUNTINGASSISTANT_DAO_H
+//
